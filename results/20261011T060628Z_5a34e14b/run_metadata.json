@@ -1,0 +1,234 @@
+{
+  "checkpoint_format": 2,
+  "run_id": "20261011T060628Z_5a34e14b",
+  "resumed_from": null,
+  "python": "3.13.15",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.1.3",
+  "pandas": "2.3.3",
+  "device": "cuda",
+  "dtype": "torch.float32",
+  "gpu": "Tesla T4",
+  "preprocessing": {
+    "csv_filename": "SNLS80mV.csv",
+    "excerpt_sha256": "ba48edcda51a59126ec1ddb980bf109a0809b4423a8de8bfb7b7ac85278c2f70",
+    "excerpt_start": 42650,
+    "excerpt_stop": 46746,
+    "training_sample_count": 3072,
+    "sampling_frequency": 610.35,
+    "dt": 0.0016384041943147375,
+    "centering_scope": "full excerpt as required by assignment",
+    "u_mean": 0.006657416356201172,
+    "y_mean": 0.0013167125861816408,
+    "input_order": [
+      "y",
+      "v",
+      "u"
+    ],
+    "input_scales": [
+      0.053019276476247504,
+      20.652955357467576,
+      0.021956735751342264
+    ],
+    "acceleration_scale": 9834.384833088967,
+    "dominant_frequency_hz": 68.545166015625,
+    "initial_state": [
+      0.07192428741381836,
+      -21.18952095
+    ],
+    "initial_rate_method": "forward difference of first two training outputs",
+    "input_interpolation": "linear"
+  },
+  "experiment_plan": [
+    {
+      "name": "A_32_32_MLP_adam",
+      "architecture": "A_32_32",
+      "hidden_sizes": [
+        32,
+        32
+      ],
+      "family": "MLP",
+      "physics_weight": 0.0,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "seed": 42,
+      "gradient_clip": 1.0,
+      "schedule": [
+        {
+          "rollout_steps": 32,
+          "updates": 300,
+          "learning_rate": 0.001
+        },
+        {
+          "rollout_steps": 64,
+          "updates": 300,
+          "learning_rate": 0.0003
+        },
+        {
+          "rollout_steps": 128,
+          "updates": 300,
+          "learning_rate": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "A_32_32_PI_MLP_adam",
+      "architecture": "A_32_32",
+      "hidden_sizes": [
+        32,
+        32
+      ],
+      "family": "PI-MLP",
+      "physics_weight": 0.1,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "seed": 42,
+      "gradient_clip": 1.0,
+      "schedule": [
+        {
+          "rollout_steps": 32,
+          "updates": 300,
+          "learning_rate": 0.001
+        },
+        {
+          "rollout_steps": 64,
+          "updates": 300,
+          "learning_rate": 0.0003
+        },
+        {
+          "rollout_steps": 128,
+          "updates": 300,
+          "learning_rate": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "B_64_64_MLP_adam",
+      "architecture": "B_64_64",
+      "hidden_sizes": [
+        64,
+        64
+      ],
+      "family": "MLP",
+      "physics_weight": 0.0,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "seed": 42,
+      "gradient_clip": 1.0,
+      "schedule": [
+        {
+          "rollout_steps": 32,
+          "updates": 300,
+          "learning_rate": 0.001
+        },
+        {
+          "rollout_steps": 64,
+          "updates": 300,
+          "learning_rate": 0.0003
+        },
+        {
+          "rollout_steps": 128,
+          "updates": 300,
+          "learning_rate": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "B_64_64_PI_MLP_adam",
+      "architecture": "B_64_64",
+      "hidden_sizes": [
+        64,
+        64
+      ],
+      "family": "PI-MLP",
+      "physics_weight": 0.1,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "seed": 42,
+      "gradient_clip": 1.0,
+      "schedule": [
+        {
+          "rollout_steps": 32,
+          "updates": 300,
+          "learning_rate": 0.001
+        },
+        {
+          "rollout_steps": 64,
+          "updates": 300,
+          "learning_rate": 0.0003
+        },
+        {
+          "rollout_steps": 128,
+          "updates": 300,
+          "learning_rate": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "C_32_32_32_MLP_adam",
+      "architecture": "C_32_32_32",
+      "hidden_sizes": [
+        32,
+        32,
+        32
+      ],
+      "family": "MLP",
+      "physics_weight": 0.0,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "seed": 42,
+      "gradient_clip": 1.0,
+      "schedule": [
+        {
+          "rollout_steps": 32,
+          "updates": 300,
+          "learning_rate": 0.001
+        },
+        {
+          "rollout_steps": 64,
+          "updates": 300,
+          "learning_rate": 0.0003
+        },
+        {
+          "rollout_steps": 128,
+          "updates": 300,
+          "learning_rate": 0.0001
+        }
+      ]
+    },
+    {
+      "name": "C_32_32_32_PI_MLP_adam",
+      "architecture": "C_32_32_32",
+      "hidden_sizes": [
+        32,
+        32,
+        32
+      ],
+      "family": "PI-MLP",
+      "physics_weight": 0.1,
+      "optimizer": "Adam",
+      "batch_size": 32,
+      "seed": 42,
+      "gradient_clip": 1.0,
+      "schedule": [
+        {
+          "rollout_steps": 32,
+          "updates": 300,
+          "learning_rate": 0.001
+        },
+        {
+          "rollout_steps": 64,
+          "updates": 300,
+          "learning_rate": 0.0003
+        },
+        {
+          "rollout_steps": 128,
+          "updates": 300,
+          "learning_rate": 0.0001
+        }
+      ]
+    }
+  ],
+  "checkpoint_every": 50,
+  "AdamW_weight_decay": 0.0001
+}

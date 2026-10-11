@@ -1,0 +1,8 @@
+# Compatible dependency ranges; the recorded run's exact versions are in run_metadata.json.
+# These ranges are not a lockfile or a guarantee of identical numerical results.
+numpy>=1.26,<3
+pandas>=2.2,<3
+matplotlib>=3.8,<4
+torch>=2.6,<3
+ipython>=8,<10
+jupyterlab>=4,<5
